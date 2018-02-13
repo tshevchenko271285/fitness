@@ -20,37 +20,47 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'fitnes' ); ?></a>
+<body <?php body_class(); ?> data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php
-			endif;
+<!-- =========================
+     PRE LOADER       
+============================== -->
+<div  class="preloader">
 
-			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
-				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-			<?php
-			endif; ?>
-		</div><!-- .site-branding -->
+	<div class="sk-spinner sk-spinner-pulse"></div>
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'fitnes' ); ?></button>
-			<?php
+</div>
+
+<!-- =========================
+    NAVIGATION SECTION   
+============================== -->
+<div class="navbar navbar-default navbar-fixed-top sticky-navigation" role="navigation">
+	<div class="container">
+
+		<div class="navbar-header">
+			<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+			</button>
+			<?php if ( has_custom_logo() ): ?>
+				<?php echo the_custom_logo(); ?>
+			<?php else: ?>
+				<a href="#" class="navbar-brand"><?php echo bloginfo( 'name' ); ?></a>
+			<?php endif; ?>
+		</div>
+		<div class="collapse navbar-collapse">
+				<?php
 				wp_nav_menu( array(
 					'theme_location' => 'menu-1',
 					'menu_id'        => 'primary-menu',
+					'menu_class'	 => 'nav navbar-nav navbar-right main-navigation',
+					'container'	 	 => false,
+					'walker'          => new Spirit_Main_Menu
+
 				) );
 			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+		</div>
 
-	<div id="content" class="site-content">
+	</div>
+</div>

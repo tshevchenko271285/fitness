@@ -50,3 +50,9 @@ if (is_file( get_template_directory() . '/inc/fitness-scripts.php') )
  */
 if (is_file( get_template_directory() . '/inc/fitness-route.php') ) 
 	require get_template_directory() . '/inc/fitness-route.php';
+
+/**
+ * Function Fitness Routing
+ */
+if (is_file( get_template_directory() . '/inc/fitness-menus.php') ) 
+	require get_template_directory() . '/inc/fitness-menus.php';
