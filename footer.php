@@ -34,7 +34,6 @@ if ( $data['developer'] ) {
 
 ?>
 <footer>
-	<pre><?php var_dump($data) ?></pre>
 	<div class="container">
 		<div class="row">
 

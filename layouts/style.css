@@ -4,6 +4,7 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
     font-style: normal;
     font-weight: 300;
+    min-width: 320px;
 }
 
 html,body {
@@ -423,16 +424,21 @@ a {
 #blog .blog-thumb {
   border: 1px solid #f0f0f0;
   position: relative;
+  min-height: 270px;
   padding: 60px;
   -wekbit-transition: all 1000ms linear;
   transition: all 1000ms linear;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: 50% 0%;
 }
 
 #blog .blog-thumb:hover {
-  background: url('../images/blog-thumb.jpg');
-   -webkit-background-size: cover;
+  /* background: url('../images/blog-thumb.jpg'); */
+/*    -webkit-background-size: cover;
   background-size: cover;
-  background-position: center center;
+  background-position: center center; */
+  background-position: 50% 50%;
   color: #ffffff;
 }
 

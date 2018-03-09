@@ -25,6 +25,6 @@ while ( have_posts() ) : the_post();
         endif;
 endwhile; // End of the loop.
 ?>
-<div style="height: 1000px" ></div>
+
 <?php
 get_footer();
