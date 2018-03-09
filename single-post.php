@@ -11,9 +11,18 @@ get_header(); ?>
 
 		<?php
 		while ( have_posts() ) : the_post();
+?>
 
-			get_template_part( 'template-parts/content', 'post' );
-
+<!-- =========================
+    BLOG SECTION   
+============================== -->
+<section id="blog" class="parallax-section">
+	<div class="container">
+		<div class="row">
+			<?php get_template_part( 'template-parts/content', 'post' ); ?>
+			<?php get_sidebar(); ?>
+		</div>
+		<?php
 			//the_post_navigation();
 
 			// If comments are open or we have at least one comment, load up the comment template.
@@ -24,6 +33,8 @@ get_header(); ?>
 		endwhile; // End of the loop.
 		?>
 
+		</div>
+	</div>
+</section>
 <?php
-//get_sidebar();
 get_footer();

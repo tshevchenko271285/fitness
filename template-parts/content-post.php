@@ -1,142 +1,35 @@
-<!-- =========================
-    BLOG SECTION   
-============================== -->
-<section id="blog" class="parallax-section">
-	<div class="container">
-		<div class="row">
+<?php 
+	$author_id = get_the_author_meta('ID');
+	$author_blog_url = get_author_posts_url( $author_id );
+	$archive_link = get_month_link( get_the_date('Y'), get_the_date('n') );
+?>
+<div class="col-md-8 col-sm-7">
 
-			<div class="col-md-8 col-sm-7">
-
-				<div class="blog-content wow fadeInUp" data-wow-delay="1s">
-                	<h3><?php the_title() ?></h3>
-					<span class="meta-date"><a href="#">14 May 2016</a></span>
-					<span class="meta-comments"><a href="#blog-comments">10 comments</a></span>
-					<span class="meta-author"><a href="#blog-author">David Walker</a></span>
-					<div class="blog-clear"></div>
-					<?php 
-
-
-
-					?>
-					<?php the_content() ?>
-					<!-- 
-					<p>Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet, wisi risus purus augue vulputate voluptate neque, curabitur dolor libero sodales vitae elit massa. Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet.</p>
-					<p>Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet, wisi risus purus augue vulputate voluptate neque, curabitur dolor libero sodales vitae elit massa.</p>
-					                    
-					                    <div class="blog-image wow fadeInUp" data-wow-delay="0.9s">
-					                        <img src="images/blog-thumb.jpg" class="img-responsive" alt="blog">
-					                    </div>
-					                
-					<blockquote>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, quisquam, aut, eum, natus excepturi impedit ipsa rerum ratione id dolores ducimus minus eos quod veniam similique fugit illum error facilis!
-					</blockquote>
-					<p>Sed tempus elementum purus. Maecenas porta lobortis dui, vitae ornare lacus iaculis eu. Sed in tristique mauris. Sed vel nulla mi. Aliquam vulputate hendrerit fermentum. Nullam at ornare elit. Nulla ut commodo nulla. Nam bibendum feugiat enim nec lobortis. Etiam hendrerit blandit augue lacinia finibus.</p> -->
-				</div>
-                
-				
-                
-				<div class="blog-author wow fadeInUp" data-wow-delay="1s">
-					<div class="media">
-						<div class="media-object pull-left">
-							<a href="#"><img src="images/blog-author.jpg" class="img-responsive img-circle" alt="blog"></a>
-						</div>
-						<div class="media-body">
-							<h4 class="media-heading">Michael Dan</h4>
-							<p>Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet, wisi risus purus augue vulputate voluptate neque, curabitur.</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="blog-comment wow fadeInUp" data-wow-delay="1s">
-					<h3>2 comments</h3>
-						<div class="media">
-							<div class="media-object pull-left">
-								<img src="images/comment1.jpg" class="img-responsive img-circle" alt="blog">
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Sandar Minn</h4>
-								<h5>18 May 2016</h5>
-								<p>Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet, wisi risus purus augue vulputate voluptate neque, curabitur.</p>
-									<div class="media">
-							<div class="media-object pull-left">
-								<img src="images/comment2.jpg" class="img-responsive img-circle" alt="blog">
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">George Linn</h4>
-								<h5>14 May 2016</h5>
-								<p>Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet, wisi risus purus augue vulputate voluptate neque, curabitur.</p>
-							</div>
-						</div>
-							</div>
-						</div>
-				</div>
-
-				<div class="blog-comment-form wow fadeInUp" data-wow-delay="1s">
-					<h3>Leave a comment</h3>
-						<form action="#" method="post" id="comment-form">
-							<div class="col-md-6 col-sm-6">
-								<input type="text" class="form-control" placeholder="Name" name="name" required>
-							</div>
-							<div class="col-md-6 col-sm-6">
-								<input type="email" class="form-control" placeholder="Email" name="email" required>
-							</div>
-							<div class="col-md-12 col-sm-12">
-								<textarea class="form-control" placeholder="Message" rows="5" name"message" required id="message"></textarea>
-							</div>
-							<div class="col-md-3 col-sm-3">
-								<input name="submit" type="submit" class="form-control" id="submit" value="Submit">
-							</div>
-						</form>
-				</div>
-
+	<div class="blog-content wow fadeInUp" data-wow-delay="1s">
+    	<h3><?php the_title() ?></h3>
+		<span class="meta-date"><a href="<?php echo $archive_link ?>"><?php the_date('d M Y') ?></a></span>
+		<span class="meta-comments"><a href="#blog-comments"><?php comments_number('no comments', '1 comment', '% comments') ?></a></span>
+		<span class="meta-author"><a href="<?php echo $author_blog_url ?>"><?php the_author() ?></a></span>
+		<div class="blog-clear"></div>
+		<?php the_content() ?>
+	</div>
+    
+	<div class="blog-author wow fadeInUp" data-wow-delay="1s">
+		<div class="media">
+			<div class="media-object pull-left">
+				<a href= <?php echo $author_blog_url ?> ><img src="<?php echo get_avatar_url( $author_id ) ?>" class="img-responsive img-circle" alt="blog"></a>
 			</div>
-
-			<div class="col-md-4 col-sm-5 wow fadeInUp" data-wow-delay="1.3s">
-            
-            	<div class="blog-categories">
-					<h3>Categories</h3>
-						<li><a href="#">Body Fitness</a></li>
-						<li><a href="#">Get Online Tips</a></li>
-						<li><a href="#">Aerobic Exercises</a></li>
-                        <li><a href="#">Yoga Courses</a></li>
-                        <li><a href="#">General Health</a></li>
-                        <li><a href="#">Fit and Lift</a></li>
-				</div>
-
-				<div class="recent-post">
-					<h3>Recent Posts</h3>
-
-						<div class="media">
-							<div class="media-object pull-left">
-								<a href="#"><img src="images/blog-thumb1.jpg" class="img-responsive" alt="blog"></a>
-							</div>
-							<div class="media-body">
-								<h5>18 May 2016</h5>
-								<h4 class="media-heading"><a href="#">How to get a fitness model body within 30 days</a></h4>
-							</div>
-						</div>
-						<div class="media">
-							<div class="media-object pull-left">
-								<a href="#"><img src="images/blog-thumb2.jpg" class="img-responsive" alt="blog"></a>
-							</div>
-							<div class="media-body">
-								<h5>14 May 2016</h5>
-								<h4 class="media-heading"><a href="#">Explore Gym Services</a></h4>
-							</div>
-						</div>
-						<div class="media">
-							<div class="media-object pull-left">
-								<a href="#"><img src="images/blog-thumb3.jpg" class="img-responsive" alt="blog"></a>
-							</div>
-							<div class="media-body">
-								<h5>10 May 2016</h5>
-								<h4 class="media-heading"><a href="#">How to practice Aerobics?</a></h4>
-							</div>
-						</div>
-				</div>
-                
+			<div class="media-body">
+				<h4 class="media-heading"><?php the_author() ?></h4>
+				<p><?php echo get_the_author_meta('description') ?></p>
 			</div>
-			
 		</div>
 	</div>
-</section>
+
+	<?php 
+	if ( comments_open() || get_comments_number() ) :
+		comments_template();
+	endif;
+	?>
+
+</div>

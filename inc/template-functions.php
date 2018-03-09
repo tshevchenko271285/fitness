@@ -57,6 +57,12 @@ if (is_file( get_template_directory() . '/inc/fitness-route.php') )
 if (is_file( get_template_directory() . '/inc/fitness-menus.php') ) 
 	require get_template_directory() . '/inc/fitness-menus.php';
 
+/**
+ * Function Fitness Routing
+ */
+//if (is_file( get_template_directory() . '/inc/fitness-comments.php') ) 
+	require get_template_directory() . '/inc/fitness-comments.php';
+
 /*
 function filter_ptags_on_images($content){
    return preg_replace('​/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
