@@ -52,20 +52,25 @@ if (is_file( get_template_directory() . '/inc/fitness-route.php') )
 	require get_template_directory() . '/inc/fitness-route.php';
 
 /**
- * Function Fitness Routing
+ * Function Custom Menus
  */
 if (is_file( get_template_directory() . '/inc/fitness-menus.php') ) 
 	require get_template_directory() . '/inc/fitness-menus.php';
 
 /**
- * Function Fitness Routing
+ * Function Custom Comments & Form
  */
-//if (is_file( get_template_directory() . '/inc/fitness-comments.php') ) 
+if (is_file( get_template_directory() . '/inc/fitness-comments.php') )
 	require get_template_directory() . '/inc/fitness-comments.php';
 
-/*
-function filter_ptags_on_images($content){
-   return preg_replace('​/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
-}
+/**
+ * Function Custom Widget Categories
+ */
+if (is_file( get_template_directory() . '/inc/fitness-class-wp-widget-categories.php') )
+	require get_template_directory() . '/inc/fitness-class-wp-widget-categories.php';
 
-add_filter('the_content', 'filter_ptags_on_images');*/
+/**
+ * Function Custom Widget Recent Post
+ */
+if (is_file( get_template_directory() . '/inc/fitness-class-wp-widget-recent-posts.php') )
+	require get_template_directory() . '/inc/fitness-class-wp-widget-recent-posts.php';

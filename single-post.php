@@ -7,8 +7,8 @@
  * @package fitnes
  */
 
-get_header(); ?>
-
+get_header();
+get_template_part( 'template-parts/content', 'banner-single-post' ); ?>
 		<?php
 		while ( have_posts() ) : the_post();
 ?>
@@ -32,7 +32,6 @@ get_header(); ?>
 
 		endwhile; // End of the loop.
 		?>
-
 		</div>
 	</div>
 </section>

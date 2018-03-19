@@ -80,6 +80,7 @@ function magomra_nav_menu( $menu_id ) {
 	wp_nav_menu( $args );
 }
 
+// Added Option Theme In Admin Menu
 if( function_exists('acf_add_options_page') ) {
     acf_add_options_page(array(
 		'page_title'    => 'Options theme',
@@ -89,12 +90,11 @@ if( function_exists('acf_add_options_page') ) {
 		'redirect'  => false
     ));
 }
-/*
-if( function_exists('acf_add_options_sub_page') ) {
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Theme Footer Settings',
-		'menu_title'	=> 'Footer',
-		'parent_slug'	=> 'options-theme',
-	));
-}
-*/
+
+/*if( function_exists('acf_add_options_sub_page') ) {
+    acf_add_options_sub_page(array(
+        'page_title' 	=> 'Single Post Settings',
+        'menu_title'	=> 'Single Post',
+        'parent_slug'	=> 'options-theme',
+    ));
+}*/

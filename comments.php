@@ -35,8 +35,29 @@ if ( post_password_required() ) {
 		<?php wp_list_comments($args); ?>
 	<?php
 	endif;
-
-	//comment_form();
 	?>
-
 </div><!-- #comments -->
+
+    <div class="blog-comment-form wow fadeInUp" data-wow-delay="1s">
+        <!--<h3>Leave a comment</h3>-->
+
+        <?php
+        $args = array(
+            'id_form'      => 'comment-form',
+            'title_reply'  => 'Leave a comment',
+            'logged_in_as' => '',
+            'must_log_in'  => '',
+            'comment_notes_before' => '',
+            'class_form'   => '',
+            'label_submit' => 'Submit',
+            'class_submit' => 'form-control',
+            'comment_field' => '<div class="col-md-12 col-sm-12"><textarea class="form-control" placeholder="Message" id="comment message" name="comment" rows="5"  aria-required="true" required="required"></textarea></div>',
+            'submit_field'  => '<div class="col-md-3 col-sm-3">%1$s %2$s</div>',
+            'fields' => array(
+                'author' => '<div class="col-md-6 col-sm-6"> <input id="author" class="form-control" placeholder="Name" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . $aria_req . $html_req . '" /></div>',
+                'email'  => '<div class="col-md-6 col-sm-6"> <input id="email" name="email" class="form-control" placeholder="Email"' . ( $html5 ? 'type="email"' : 'type="text"' ) . ' value="' . esc_attr(  $commenter['comment_author_email'] ) . '" aria-describedby="email-notes"' . $aria_req . $html_req  . ' /></div>',
+            ),
+        );
+        comment_form($args);
+        ?>
+    </div>

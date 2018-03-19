@@ -10,9 +10,11 @@ function fitnes_comment_start($comment, $args, $depth){
         <h4 class="media-heading"><?php echo get_comment_author() ?></h4>
         <h5><?php echo get_comment_date( 'd M Y', $comment ); ?></h5>
         <p><?php echo get_comment_text(); ?></p>
-        <?php //echo get_comment_reply_link(['reply_text' => "ответить на комментарий"], 2881, 631); ?> 
-    <?php 
-    // If not chidrens closed block media
+
+        <?php // echo comment_reply_link(['reply_text' => "Reply"], $comment, get_the_ID() ); ?>
+    <?php  ?>
+    <?php
+    // If not childrens closed block media
     
 }
 function fitnes_comment_end($comment, $args, $depth){
@@ -28,4 +30,21 @@ function fitnes_comment_end($comment, $args, $depth){
         echo "\n</div><!-- media-body-last -->";
         echo "\n</div><!-- media-last -->";
     }
+}
+
+// Order Fields Comment Form
+add_filter('comment_form_fields', 'fitnes_reorder_comment_fields' );
+function fitnes_reorder_comment_fields( $fields ){
+     // die(print_r( $fields )); // посмотрим какие поля есть
+    $new_fields = array(); // сюда соберем поля в новом порядке
+    $myorder = array('author','email','comment'); // нужный порядок
+    foreach( $myorder as $key ){
+        $new_fields[ $key ] = $fields[ $key ];
+        unset( $fields[ $key ] );
+    }
+    // если остались еще какие-то поля добавим их в конец
+    if( $fields )
+        foreach( $fields as $key => $val )
+            $new_fields[ $key ] = $val;
+    return $new_fields;
 }
