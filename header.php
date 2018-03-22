@@ -32,33 +32,58 @@
 <!-- =========================
     NAVIGATION SECTION   
 ============================== -->
-<div class="navbar navbar-default navbar-fixed-top sticky-navigation" role="navigation">
-	<div class="container">
+<?php if( is_home() ) : ?>
+    <div class="navbar navbar-default navbar-fixed-top sticky-navigation" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <?php if ( has_custom_logo() ): ?>
+                    <?php echo the_custom_logo(); ?>
+                <?php else: ?>
+                    <a href="#" class="navbar-brand"><?php echo bloginfo( 'name' ); ?></a>
+                <?php endif; ?>
+            </div>
+            <div class="collapse navbar-collapse">
+                <?php
+                    wp_nav_menu( array(
+                        'theme_location' => 'menu-1',
+                        'menu_id'        => 'primary-menu',
+                        'menu_class'	 => 'nav navbar-nav navbar-right main-navigation',
+                        'container'	 	 => false,
+                        'walker'          => new Spirit_Main_Menu
+                    ) );
+                ?>
+            </div>
+        </div>
+    </div>
+<?php else : ?>
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container">
 
-		<div class="navbar-header">
-			<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="icon icon-bar"></span>
-				<span class="icon icon-bar"></span>
-				<span class="icon icon-bar"></span>
-			</button>
-			<?php if ( has_custom_logo() ): ?>
-				<?php echo the_custom_logo(); ?>
-			<?php else: ?>
-				<a href="#" class="navbar-brand"><?php echo bloginfo( 'name' ); ?></a>
-			<?php endif; ?>
-		</div>
-		<div class="collapse navbar-collapse">
-				<?php
-				wp_nav_menu( array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-					'menu_class'	 => 'nav navbar-nav navbar-right main-navigation',
-					'container'	 	 => false,
-					'walker'          => new Spirit_Main_Menu
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="index.html" class="navbar-brand">Fitness</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <?php
+                wp_nav_menu( array(
+                    'theme_location' => 'menu-2',
+                    'menu_id'        => '',
+                    'menu_class'	 => 'nav navbar-nav navbar-right',
+                    'container'	 	 => false,
+                    'walker'          => new Spirit_Main_Menu
+                ) );
+                ?>
+            </div>
 
-				) );
-			?>
-		</div>
-
-	</div>
-</div>
+        </div>
+    </div>
+<?php endif; ?>

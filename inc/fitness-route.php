@@ -6,6 +6,8 @@ function fitness_route($str) {
 		case 'trainer' : get_template_part( 'template-parts/content', 'trainer' ); break;
 		case 'newsletter' : get_template_part( 'template-parts/content', 'newsletter' ); break;
 		case 'blog' : get_template_part( 'template-parts/content', 'blog' ); break;
+		case 'price' : get_template_part( 'template-parts/content', 'price' ); break;
+		case 'testimonials' : get_template_part( 'template-parts/content', 'testimonials' ); break;
 		default : echo 'Not template for ' . $str;
 	}
 }

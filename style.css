@@ -23,10 +23,11 @@ Use it to make something cool, have fun, and share what you've learned with othe
 	color: #333;
 }
 #blog .blog-thumb {
-	transition: filter .1;
-}
-#blog .blog-thumb {
+	margin-top: 42px;
 	filter: saturate(.5);
+	transition: filter 100ms;
+	transition: background-position 1000ms;
+
 }
 #blog .blog-thumb:hover {
 	filter: saturate(1.5);

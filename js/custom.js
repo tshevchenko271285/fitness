@@ -77,9 +77,11 @@ $(document).ready(function() {
    /* home slider section
   -----------------------------------------------*/
   $(function(){
-    jQuery(document).ready(function() {
-    $('#home').backstretch(backstretchImages,  {duration: 2000, fade: 750});
-    });
+    if($('#home').length ) {
+        jQuery(document).ready(function() {
+            $('#home').backstretch(backstretchImages,  {duration: 2000, fade: 750});
+        });
+    }
   })
 
 

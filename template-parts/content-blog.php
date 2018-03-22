@@ -9,9 +9,9 @@
     + ACF FIELD FOR POST
 ============================== -->
 <?php 
-	$title = get_sub_field('title') ? get_sub_field('title') : '';
-	$description = get_sub_field('description') ? get_sub_field('description') : '';
-	$count_post = get_sub_field('count_post') ? get_sub_field('count_post') : 2;
+    $title = get_sub_field('title') ? get_sub_field('title') : '';
+    $description = get_sub_field('description') ? get_sub_field('description') : '';
+    $count_post = get_sub_field('count_post') ? get_sub_field('count_post') : 2;
 ?>
 <section id="blog" class="parallax-section">
 	<div class="container">
@@ -39,12 +39,12 @@
 						$categoty = $terms[0]->name ? $terms[0]->name . ' / ' : '';
 				?>
 				<div class="wow fadeInUp col-md-6 col-sm-12" data-wow-delay="0.9s">
-				<div class="blog-thumb" style="background-image: url( <?php echo the_post_thumbnail_url()?> )">
-					<span class="blog-date"><?php echo $categoty ?> <?php echo get_the_date(); ?></span>
-					<h3 class="blog-title"><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h3>
-					<h5 id="blog-author">by <?php the_author() ?></h5>
-				</div>
-			</div>
+                    <div class="blog-thumb" style="background-image: url( <?php echo the_post_thumbnail_url()?> )">
+                        <span class="blog-date"><?php echo $categoty ?> <?php echo get_the_date(); ?></span>
+                        <h3 class="blog-title"><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h3>
+                        <h5 id="blog-author">by <?php the_author() ?></h5>
+                    </div>
+                </div>
 				
 					<?php //the_content(); ?>
 				<?php
